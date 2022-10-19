@@ -1,5 +1,4 @@
 #include "main.h"
-
 #include <stdio.h>
 
 /**
@@ -7,9 +6,9 @@
  * @arguments: input address.
  * @buf: buffer pointer.
  * @ibuf: index for buffer pointer
+ *
  * Return: number of chars printed.
  */
-
 int print_add(va_list arguments, char *buf, unsigned int ibuf)
 {
 	void *add;
@@ -17,6 +16,7 @@ int print_add(va_list arguments, char *buf, unsigned int ibuf)
 	int i, count, first_digit, isnegative;
 	char *hexadecimal, *binary;
 	char nill[] = "(nil)";
+
 	add = (va_arg(arguments, void *));
 	if (add == NULL)
 	{
@@ -24,7 +24,6 @@ int print_add(va_list arguments, char *buf, unsigned int ibuf)
 			ibuf = handl_buf(buf, nill[i], ibuf);
 		return (5);
 	}
-
 	int_input = (intptr_t)add;
 	isnegative = 0;
 	if (int_input < 0)
@@ -51,4 +50,4 @@ int print_add(va_list arguments, char *buf, unsigned int ibuf)
 	free(binary);
 	free(hexadecimal);
 	return (count + 2);
-}									
+}
